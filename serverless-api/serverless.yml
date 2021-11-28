@@ -1,0 +1,36 @@
+service: myapp-api
+variablesResolutionMode: 20210326
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  lambdaHashingVersion: 20201221
+  region: eu-west-1
+  iamRoleStatements: ${file(./serverless/iam.yml)}
+  versionFunctions: false
+  environment: ${file(./serverless/env.yml)}
+
+plugins:
+  - serverless-offline
+
+custom:
+  serverless-offline:
+    httpPort: 3009
+    lambdaPort: 3008
+  dotenvVars: ${file(./serverless/config.js)}
+
+resources:
+  - ${file(./serverless/alarms.yml)}
+  - ${file(./serverless/sns.yml)}
+  - ${file(./serverless/dynamo.yml)}
+  - ${file(./serverless/lambdaAlarms.js):alarms}
+
+
+functions:
+  api:
+    handler: src/index.api
+    events:
+      - http:
+          path: /{any+}
+          method: ANY
+          cors: true

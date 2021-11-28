@@ -1,0 +1,17 @@
+openapi: 3.0.0
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+info:
+  version: 1.0.0
+  title: MyApp API
+paths:
+  /user:
+    $ref: ./paths/User.yml
+  /user/{id}:
+    $ref: ./paths/UserById.yml

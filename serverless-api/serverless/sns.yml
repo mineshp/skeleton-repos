@@ -1,0 +1,5 @@
+Resources:
+  AlarmAlerts:
+    Type: AWS::SNS::Topic
+    Properties:
+      TopicName: serverless-api-alarm-alerts-${opt:stage, 'qa'}

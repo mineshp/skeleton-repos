@@ -1,0 +1,25 @@
+type: object
+additionalProperties: false
+properties:
+  id:
+    type: string
+    example: 1234567890
+  price:
+    type: integer
+    example: 9999
+  size:
+    type: string
+    example: 10
+  style_code:
+    type: string
+    example: ABC-123
+  status:
+    $ref: ./ListingStatus.yml
+  product_id:
+    type: integer
+    example: 123456
+  product_name:
+    type: string
+    example: Nike Air Force 1
+  images:
+    $ref: ./ListingImages.yml

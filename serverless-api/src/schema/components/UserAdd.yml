@@ -1,0 +1,16 @@
+type: object
+additionalProperties: false
+required:
+  - firstName
+  - surname
+  - email
+properties:
+  firstName:
+    type: string
+    example: Bob
+  surname:
+    type: string
+    example: Marley
+  email:
+    type: string
+    example: test@test.com

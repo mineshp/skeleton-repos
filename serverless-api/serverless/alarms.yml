@@ -1,0 +1,38 @@
+Resources:
+  ApiAlarm5XX:
+    Type: "AWS::CloudWatch::Alarm"
+    Properties:
+      AlarmActions:
+        - Ref: AlarmAlerts
+      AlarmDescription: Excessive 5XX errors for the API
+      AlarmName: ${opt:stage, 'qa'}_MYAPP_API_5XX
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      Dimensions:
+        - Name: ApiName
+          Value: ${opt:stage, 'qa'}-myapp-api
+      EvaluationPeriods: 1
+      TreatMissingData: notBreaching
+      Namespace: AWS/ApiGateway
+      MetricName: 5XXError
+      Period: 300
+      Statistic: Sum
+      Threshold: 10
+
+  ApiAlarm4XX:
+    Type: "AWS::CloudWatch::Alarm"
+    Properties:
+      AlarmActions:
+        - Ref: AlarmAlerts
+      AlarmDescription: Excessive 4XX errors for the API
+      AlarmName: ${opt:stage, 'qa'}_MYAPP_API_4XX
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      Dimensions:
+        - Name: ApiName
+          Value: ${opt:stage, 'qa'}-myapp-api
+      EvaluationPeriods: 1
+      TreatMissingData: notBreaching
+      Namespace: AWS/ApiGateway
+      MetricName: 4XXError
+      Period: 300
+      Statistic: Sum
+      Threshold: 50

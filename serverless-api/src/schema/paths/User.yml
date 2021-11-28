@@ -1,0 +1,24 @@
+post:
+  tags:
+    - User
+  description: Create a new user
+  operationId: addUser
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../components/UserAdd.yml
+  responses:
+    200:
+      description: New User Created
+      content:
+        application/json:
+          schema:
+            $ref: ../components/UserSaved.yml
+    400:
+      description: Validation error
+    401:
+      description: Not Authenticated
+    500:
+      description: Server error

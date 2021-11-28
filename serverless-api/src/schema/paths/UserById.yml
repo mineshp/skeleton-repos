@@ -1,0 +1,76 @@
+get:
+  tags:
+    - User
+  description: Get a User
+  operationId: getUser
+  parameters:
+    - in: path
+      description: The User ID
+      name: id
+      schema:
+        type: string
+  responses:
+    200:
+      description: The User
+      content:
+        application/json:
+          schema:
+              $ref: ../components/UserSaved.yml
+    401:
+      description: Not Authenticated
+    404:
+      description: User not found
+    500:
+      description: Server error
+put:
+  tags:
+    - User
+  description: Update user information for setting admin user
+  operationId: updateUser
+  parameters:
+    - in: path
+      description: The User ID
+      name: id
+      required: true
+      schema:
+        type: string
+  requestBody:
+    required: true
+    content:
+      application/json:
+        schema:
+          $ref: ../components/UserAdmin.yml
+  responses:
+    200:
+      description: User successfully updated
+    400:
+      description: Validation error
+    401:
+      description: Not Authenticated
+    403:
+      description: Forbidden
+    500:
+      description: Server error
+delete:
+  tags:
+    - User
+  description: Removes a user
+  operationId: deleteUser
+  parameters:
+    - in: path
+      description: The User ID
+      name: id
+      required: true
+      schema:
+        type: string
+  responses:
+    200:
+      description: User successfully removed
+    401:
+      description: Not Authenticated
+    404:
+      description: User not found
+    403:
+      description: Forbidden
+    500:
+      description: Server error
