@@ -1,0 +1,46 @@
+{
+  "name": "lp-fe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "test": "jest",
+    "test:ci": "jest --coverage --forceExit",
+    "test:watch": "npm test -- --watchAll"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1039.0",
+    "babel-plugin-styled-components": "^2.0.2",
+    "jest-watch-suspend": "^1.1.2",
+    "jest-watch-typeahead": "^1.0.0",
+    "lodash": "^4.17.21",
+    "next": "^12.0.4",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "styled-components": "^5.3.3"
+  },
+  "devDependencies": {
+    "@babel/eslint-parser": "^7.16.3",
+    "@testing-library/dom": "^8.11.1",
+    "@testing-library/jest-dom": "^5.15.1",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "babel-eslint": "^10.1.0",
+    "babel-jest": "^27.4.1",
+    "dotenv": "^10.0.0",
+    "eslint": "^8.3.0",
+    "eslint-config-next": "^12.0.4",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-jest": "^25.3.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.1",
+    "jest": "^27.4.1",
+    "prettier": "^2.5.0"
+  }
+}
